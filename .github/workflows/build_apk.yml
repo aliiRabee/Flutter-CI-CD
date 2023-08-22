@@ -48,9 +48,9 @@ jobs:
           UPLOAD_URL=$(curl --upload-file build/app/outputs/flutter-apk/app-release.apk https://transfer.sh/app-release.apk)
           echo "::set-output name=upload_url::$UPLOAD_URL"
 
-      - name: Notify Slack
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"New APK build is ready for download: ${{ steps.upload_artifact.outputs.upload_url }}"}' $SLACK_WEBHOOK_URL
-
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#      - name: Notify Slack
+#        run: |
+#          curl -X POST -H 'Content-type: application/json' --data '{"text":"New APK build is ready for download: ${{ steps.upload_artifact.outputs.upload_url }}"}' $SLACK_WEBHOOK_URL
+#
+#        env:
+#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
